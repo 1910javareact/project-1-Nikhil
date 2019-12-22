@@ -1,43 +1,39 @@
-import React, { SyntheticEvent } from "react";
-import { RouteComponentProps } from "react-router";
-import { reimbursement } from "../../models/reimbursements";
+import { reimbursement } from "../../models/reimbursements"
+import { RouteComponentProps } from "react-router"
+import React, { SyntheticEvent } from "react"
+import { Form, FormGroup, Label, Input, Button, Table } from "reactstrap"
+import { ReimbursementByUserDisplayRow } from "./Reimbursement-by-user-display-row/ReimbursementByUserDisplayRowComponent"
 
-import { Table, Form, FormGroup, Label, Input, Button } from "reactstrap";
-//import { getReimbursementByStatus } from "../../remote/reimbursements-by-status";
-import { ReimbursementByStatusDisplayRowComponent } from "./Reimbursement-by-status-display-row/ReimbursementByStatusDisplayRowComponent";
-
-
-
-interface IRembursementByStatusDisplayProps extends RouteComponentProps {
+interface IRembursementByUserDisplayProps extends RouteComponentProps {
     Reimbursement: reimbursement[]
-    reimbursementID: (id: number) => void//we are setting reimId to a type of function that takes an argument Id and this id is of type number and this number doesnot return anything 
+    reimbursementID: (id: number) => void
 
 }
 
 
-export class RembursementByStatusDisplayComponent extends React.Component<IRembursementByStatusDisplayProps, any>{
+export class RembursementByUserDisplayComponent extends React.Component<IRembursementByUserDisplayProps, any>{
     constructor(props: any) {
         super(props)
         this.state = {
             id: undefined
         }
     }
-    //if I don't have set state in this then my status id will always be undefined 
+    
     updateId = (e: any) => {
         this.setState({
             ...this.state,
-            id: e.target.value//e is a property of the state,we are assigning value to the id 
+            id: e.target.value
         })
     }
     //submt button 
-    submitId = async (e: SyntheticEvent) => {//promise of the event, 
+    submitId = async (e: SyntheticEvent) => {
         e.preventDefault()
-        this.props.reimbursementID(this.state.id)// we are passing stateId to the reimID, by this we are overriding the preventdefault funtion 
+        this.props.reimbursementID(this.state.id)
     }
     
     render() {
         let rows = this.props.Reimbursement.map((e) => {
-            return <ReimbursementByStatusDisplayRowComponent Reimbursement={e} key={'Reimbursement' + e.reimbursementId} />//mapping  through keys and value ,Reimbursement is the key and + e.reimbursementId is the value
+            return <ReimbursementByUserDisplayRow Reimbursement={e} key={'Reimbursement' + e.reimbursementId} />//mapping  through keys and value ,Reimbursement is the key and + e.reimbursementId is the value
         })
         return (
 
@@ -73,5 +69,5 @@ export class RembursementByStatusDisplayComponent extends React.Component<IRembu
 
         )
     }
-}
 
+}

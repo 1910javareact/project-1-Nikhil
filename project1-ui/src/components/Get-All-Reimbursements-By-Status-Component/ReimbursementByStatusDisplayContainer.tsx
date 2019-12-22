@@ -2,7 +2,7 @@ import { connect } from "react-redux"
 
 
 import { IState } from "../../reducer"
-import {reimbursementID}from "../../action-mappers/reimbursement-action-mapper"
+import {reimbursementID}from "../../action-mappers/reimbursementStatus-action-mapper"
 import { RembursementByStatusDisplayComponent } from "./ReimbursementByStatusDisplayComponent"
 
 const mapStateToProps = (state:IState) => {

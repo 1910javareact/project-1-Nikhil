@@ -4,9 +4,10 @@ import { loginReducer } from "./login-reducer";
 
 import { User } from "../models/user";
 import { reimbursement } from "../models/reimbursements";
-import { reimbursementReducer } from "./reimbursement-reducer";
+import { reimbursementReducer } from "./reimbursementStatus-reducer";
 
 import { useridReducer } from "./user-reducer";
+import { reimbursementUserReducer } from "./reimbursementUser-reducer";
 
 //this file will contain the type definitions for our store
 //there will be many interfaces, that contain what each chunk of store should have
@@ -25,7 +26,7 @@ export interface IState{
     reimb: IReimbursment,
     login:ILoginState,
     uid: IUserState
-    
+    Reimbs:IReimbursementUser
     
 }
 
@@ -34,8 +35,8 @@ export interface IState{
 export const state = combineReducers<IState>({
     login:loginReducer,
     reimb:reimbursementReducer,
-    uid:useridReducer
-    
+    uid:useridReducer,
+    Reimbs:reimbursementUserReducer
 })
 
 
@@ -45,5 +46,8 @@ export interface IReimbursment {
 }
 export interface IUserState {
     user: User
+}
+ export interface IReimbursementUser{
+    Reimbursement: reimbursement[]
 }
 //

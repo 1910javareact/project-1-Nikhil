@@ -11,6 +11,7 @@ import  UserDisplayComponent  from './components/get-all-user-component/user-dis
 import  ReimbursementByStatusDisplayRowComponent  from './components/Get-All-Reimbursements-By-Status-Component/ReimbursementByStatusDisplayContainer';
 //import UserByIdDisplayRowComponent from './components/Get-All-User-By-Id-Component/UserByIdDisplayContainer'
 import  UserByIdDisplayComponent from './components/Get-All-User-By-Id-Component/UserByIdDisplayContainer';
+import  ReimbursementByUserDisplayComponent  from './components/Get-All-Reimbursement-By-User-Component/ReimbursementByUserDisplayContainer';
 
 const App: React.FC = () => {
   return (
@@ -24,7 +25,7 @@ const App: React.FC = () => {
             <Route path='/user/display/id/' component={UserByIdDisplayComponent}/>
             <Route path='/user/display/' component={UserDisplayComponent}/> 
             <Route path='/reimbursements/status/' component={ReimbursementByStatusDisplayRowComponent} />
-            
+            <Route path='/reimbursements/user/' component={ReimbursementByUserDisplayComponent} />
             <Route path ='/'>
               </Route>
             {/* <Home/> */}

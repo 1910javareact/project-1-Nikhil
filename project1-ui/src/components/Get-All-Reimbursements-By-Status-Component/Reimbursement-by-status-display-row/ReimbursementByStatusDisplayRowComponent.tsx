@@ -12,8 +12,13 @@ export const ReimbursementByStatusDisplayRowComponent: React.FC<IReimbursementsB
             <td>{props.Reimbursement.author}</td>
             <td>{props.Reimbursement.amount}</td>
             <td>{props.Reimbursement.dateSubmitted}</td>
+            <td>{props.Reimbursement.dateResolved}</td>
+
             <td>{props.Reimbursement.description}</td>
             <td>{props.Reimbursement.status}</td>
+            <td>{props.Reimbursement.resolver}</td>
+            <td>{props.Reimbursement.type}</td>
+
         </tr>
     )
 }

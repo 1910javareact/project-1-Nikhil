@@ -22,7 +22,10 @@ import "./navbar.css"
                <Link to='/user/display'>users</Link> 
             </NavItem>
             <NavItem>
-               <Link to='/reimbursements/status/'>Reimbursements</Link> 
+               <Link to='/reimbursements/status/'>Reimbursement Status</Link> 
+            </NavItem>
+            <NavItem>
+               <Link to='/reimbursements/user/'>Reimbursement User</Link> 
             </NavItem>
             <NavItem>
                <Link to='/user/display/id/'>Users ID</Link> 
