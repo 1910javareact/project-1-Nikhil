@@ -1,8 +1,5 @@
 import { userLogin } from "../remote/reimbursements-clients/reimbursements-user"
 
-
-// we will make an object with constant values
-// so we dont have to worry about spelling
 export const uLoginTypes = {
     INVALID_CREDENTIALS: 'USER_LOGIN_INVALID_CREDENTIALS',
     SUCCESSFUL_LOGIN: 'USER_LOGIN_SUCCESSFUL_LOGIN',

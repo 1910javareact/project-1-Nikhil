@@ -1,6 +1,6 @@
 import { ILoginState } from "."
 
-import { uLoginTypes } from "../action-mappers/login-action-mappers"
+import { uLoginTypes } from "../action-mappers/login-action-mapper"
 import { User } from "../models/user"
 
 //the reducer is the only thing allowed to change values in state

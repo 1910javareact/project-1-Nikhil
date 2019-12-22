@@ -1,65 +1,69 @@
-import React, { SyntheticEvent } from 'react'
-import { RouteComponentProps } from 'react-router';
-import { User } from '../../models/user';
-import { UserByIdDisplayRowComponent } from './User-by-id-display-row/UserByIdDisplayRowComponent';
-import { Form, FormGroup, Label, Input, Button, Table } from 'reactstrap';
+import { User } from "../../models/user"
+import React, { SyntheticEvent } from "react"
+import { FormGroup, Label, Input, Button, Table, Form } from "reactstrap"
 
-interface IUserByIdDisplayProps extends RouteComponentProps{
-    User:User[]
-    userId:(id:number) => void
+interface IUseridProps {
+    user: User
+    userID: (id: number) => void
+
 }
 
-export class UserByIdDisplayComponent extends React.Component<IUserByIdDisplayProps,any>{
-      constructor(props:any){
-          super(props)
-          this.state={
-              id:undefined
-          }
-          
-      }
-      updateId = (e:any)=>{
-          this.setState({
-              ...this.state,
-              id: e.target.value
-          })
-      }
-      submitId = async (e:SyntheticEvent)=>{
-          e.preventDefault()
-          this.props.userId(this.state.id)
-      }
-      render() {
-        let rows = this.props.User.map((e) => {
-            return <UserByIdDisplayRowComponent User={e} key={'User' + e.userId} />//mapping  through keys and value ,Reimbursement is the key and + e.reimbursementId is the value
-        })
-        return (
 
-            <div>
+export class UseridComponent extends React.Component<IUseridProps, any>{
+
+    constructor(props: any) {
+        super(props)
+        this.state = {
+            id: 0
+        }
+    }
+
+    updateId = (e: any) => {
+        this.setState({
+            ...this.state,
+            id: e.target.value
+        })
+    }
+
+    submitId = async (e: SyntheticEvent) => {
+        e.preventDefault()
+        this.props.userID(this.state.id)
+    }
+
+    render() {
+
+        return (
+            <div className="form">
                 <Form onSubmit={this.submitId}>
                     <FormGroup>
-                        <Label for="exampleID">ID</Label>
-                        <Input value={this.state.id} onChange={this.updateId} type="number" name="ID" id="exampleID" placeholder="with a placeholder" />
+                        
+                        <Input value={this.state.id} onChange={this.updateId} type="number" name="ID" id="exampleID" placeholder="Have your User ID" />
                     </FormGroup>
-                    <Button color='danger'>Submit</Button>
+                    <Button color='primary'>Submit</Button>
                 </Form>
+
+                <br />
+                
+
                 <Table bordered color='danger'>
                     <thead>
                         <tr>
-                            <td>ID</td>
-                            <td>Username</td>
+                            <td>UserID</td>
                             <td>Firstname</td>
                             <td>Lastname</td>
-                            <td>email</td>
-                           
+                            <td>Email</td>
                         </tr>
                     </thead>
                     <tbody>
-                        {rows}
+                        <tr>
+                            <td>{this.props.user.userId}</td>
+                            <td>{this.props.user.firstName}</td>
+                            <td>{this.props.user.lastName}</td>
+                            <td>{this.props.user.email}</td>
+                        </tr>
                     </tbody>
                 </Table>
             </div>
-
-
-
         )
     }
 }

@@ -1,32 +1,32 @@
-import { getUserById } from "../remote/user-by-id"
+import { getUserId } from "../remote/user-by-id"
 
 export const UserTypes = {
     INVALID_CREDENTIALS: 'TOKEN_HAS_EXPIRED',
-    SUCCESSFUL_REIMBURSEMENT: 'USER_FOUND',
-    UNSUCCESSFUL_FAILED: 'User_NOT_FOUND'
+    SUCCESSFUL_USER: 'USERID_FOUND',
+    UNSUCCESSFUL_FAILED: 'USERID_NOT_FOUND'
 }
-export const userID = (id:number) => async (dispatch:any) => {
+export const userID = (id: number) => async (dispatch: any) => {
 
-    try{
-        let res = await getUserById(id)//getUserById is coming from remote(User-by-id.ts)
+    try {
+        let res = await getUserId(id)
         //a successful login
-        if(res.status === 200){
+        if (res.status === 200) {
             //this is how do it when we have async operations
             dispatch({
-                type:UserTypes.SUCCESSFUL_REIMBURSEMENT,
-                payload:{
-                    User:res.body//payload is data which is comimg fron server (database)
+                type: UserTypes.SUCCESSFUL_USER,
+                payload: {
+                    user: res.body
                 }
             })
-        }else{
+        } else {
             dispatch({
-                type:UserTypes.INVALID_CREDENTIALS
+                type: UserTypes.INVALID_CREDENTIALS
             })
         }
-    }catch(e){
+    } catch (e) {
         dispatch({
-            type:UserTypes.UNSUCCESSFUL_FAILED
+            type: UserTypes.UNSUCCESSFUL_FAILED
         })
     }
-    
+
 }

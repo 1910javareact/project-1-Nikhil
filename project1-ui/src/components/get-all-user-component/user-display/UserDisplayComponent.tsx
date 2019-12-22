@@ -48,7 +48,7 @@ export class UsersDisplayComponent extends React.Component<any, IUsersDisplaySta
         })
         return (
             this.props.user.userId !== undefined?
-                <div>
+                <div className ="form">
                     <Table bordered color='danger'>
                         <thead>
                             <tr>

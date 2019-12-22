@@ -1,21 +1,23 @@
 import { UserClient } from "./reimbursements-clients/reimbursement-user-client";
 
-export const getUserById = async (id:number) => {
-    try{
+export const getUserId = async (id: number) => {
+    try {
         let response = await UserClient.get('/user/' + id)
-        if(response.status === 200){
-            return{
-                status:response.status,
-                body:response.data
-            }
-        }else{
+
+        if (response.status === 200) {
             return {
-                status:response.status,
-                body:undefined
+                status: response.status,
+                body: response.data
+            }
+        } else {
+            return {
+                status: response.status,
+                body: undefined
             }
         }
-    }catch(e){
+    } catch (e) {
         console.log(e);
-        throw new Error('Something Went Wrong 1')
+        throw new Error('Something Went Wrong')
     }
 }
+//interect with the server just like postman

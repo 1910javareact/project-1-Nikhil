@@ -33,7 +33,7 @@ export class LoginComponent extends React.Component<any,any>{
     
     render(){
         return(
-            <div>
+            <div className ="form">
                 <Form onSubmit={this.submitLogin}>
                     <FormGroup>
                         <Label for="exampleUsername">Username</Label>
@@ -43,7 +43,7 @@ export class LoginComponent extends React.Component<any,any>{
                         <Label for="examplePassword">Password</Label>
                         <Input value={this.state.password} onChange={this.updatePassword} type="password" name="password" id="examplePassword" placeholder="password placeholder" />
                     </FormGroup>
-                    <Button color='danger'>Submit</Button>
+                    <Button color='primary'>Submit</Button>
                 </Form>
             </div>
 

@@ -1,15 +1,15 @@
 import { IState } from "../../reducer"
-
-import { UserByIdDisplayComponent } from "./UserByIdDisplayComponent"
-import {userID} from "../../action-mappers/user-action-mapper"
 import { connect } from "react-redux"
-const mapStateToProps = (state:IState) => {
+import {userID} from "../../action-mappers/user-action-mapper"
+import { UseridComponent } from "./UserByIdDisplayComponent"
+const mapStateToProps = (state: IState) => {
     return {
-        User:state.user.User
+        user: state.uid.user
     }
 }
-const mapDispatchtoProps ={
+
+const mapDispatchToProps = {
     userID
 }
 
-export default connect(mapStateToProps,mapDispatchtoProps)(UserByIdDisplayComponent)
+export default connect(mapStateToProps, mapDispatchToProps)(UseridComponent)

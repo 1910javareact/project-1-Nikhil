@@ -1,17 +1,15 @@
 import React from 'react';
-
 import './App.css';
 //import { Router as Router, Route } from 'react-router';
 //import { LoginComponent } from './components/login-component/LoginComponent';
 import  { Pnavbar } from './components/nav-bar/NavBar';
 import  LoginComponent  from './components/login-component/LoginContainer';
-import { Home } from './home/Home';
 import { BrowserRouter as Router,Route, Switch  } from 'react-router-dom';
 import { store } from './store';
 import { Provider } from 'react-redux';
 import  UserDisplayComponent  from './components/get-all-user-component/user-display/UserDisplayContainer'
 import  ReimbursementByStatusDisplayRowComponent  from './components/Get-All-Reimbursements-By-Status-Component/ReimbursementByStatusDisplayContainer';
-import UserByIdDisplayRowComponent from './components/Get-All-User-By-Id-Component/UserByIdDisplayContainer'
+//import UserByIdDisplayRowComponent from './components/Get-All-User-By-Id-Component/UserByIdDisplayContainer'
 import  UserByIdDisplayComponent from './components/Get-All-User-By-Id-Component/UserByIdDisplayContainer';
 
 const App: React.FC = () => {
@@ -33,12 +31,6 @@ const App: React.FC = () => {
             </Switch>
           </Router>
           </Provider>
-          
-         
-     
-     
-      
-   
     </div>
   );
 }

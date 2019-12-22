@@ -3,7 +3,7 @@ import { RouteComponentProps } from "react-router";
 import { reimbursement } from "../../models/reimbursements";
 
 import { Table, Form, FormGroup, Label, Input, Button } from "reactstrap";
-import { getReimbursementByStatus } from "../../remote/reimbursements-by-status";
+//import { getReimbursementByStatus } from "../../remote/reimbursements-by-status";
 import { ReimbursementByStatusDisplayRowComponent } from "./Reimbursement-by-status-display-row/ReimbursementByStatusDisplayRowComponent";
 
 
@@ -37,34 +37,20 @@ export class RembursementByStatusDisplayComponent extends React.Component<IRembu
         e.preventDefault()
         this.props.reimbursementID(this.state.id)// we are passing stateId to the reimID, by this we are overriding the preventdefault funtion 
     }
-    // async componentDidMount(){
-    //     try{
-    //         let r = await getReimbursementByStatus(this.props.reimbursement.reimbursementId)
-    //         if(r.status === 200){
-    //             this.setState({
-    //                 ...this.state,
-    //                 allReimburements: r.body
-    //             })
-    //         }
-    //     }
-    //     catch (e){
-    //         console.log(e);
-
-    //     }
-    // }
+    
     render() {
         let rows = this.props.Reimbursement.map((e) => {
             return <ReimbursementByStatusDisplayRowComponent Reimbursement={e} key={'Reimbursement' + e.reimbursementId} />//mapping  through keys and value ,Reimbursement is the key and + e.reimbursementId is the value
         })
         return (
 
-            <div>
+            <div className ="form">
                 <Form onSubmit={this.submitId}>
                     <FormGroup>
                         <Label for="exampleID">ID</Label>
                         <Input value={this.state.id} onChange={this.updateId} type="number" name="ID" id="exampleID" placeholder="with a placeholder" />
                     </FormGroup>
-                    <Button color='danger'>Submit</Button>
+                    <Button color='primary'>Submit</Button>
                 </Form>
                 <Table bordered color='danger'>
                     <thead>

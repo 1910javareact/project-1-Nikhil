@@ -1,7 +1,7 @@
 import { IState } from "../../reducer";
 import { connect } from "react-redux";
 import { LoginComponent } from "./LoginComponent";
-import { uLogin } from '../../action-mappers/login-action-mappers'
+import { uLogin } from '../../action-mappers/login-action-mapper'
 
 // this container, will be what connects the login component to the redux store and to dispatch
 // we will generally make two things here
