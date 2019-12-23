@@ -31,8 +31,9 @@ import "./navbar.css"
                <Link to='/user/display/id/'>Users ID</Link> 
             </NavItem>
             <NavItem>
-              <NavLink href="https://github.com/reactstrap/reactstrap">GitHub</NavLink>
+              <Link to='/user/update/form'>Update User</Link>
             </NavItem>
+            
           </Nav>
         </Collapse>
       </Navbar>
